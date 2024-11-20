@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:json_bonus_tasksheet/apitest.dart';
 import 'dart:convert';
 import 'package:json_bonus_tasksheet/aufgabe1.dart';
 
@@ -39,14 +40,33 @@ class Aufgabe2 extends StatelessWidget {
               Text("Luftfeuchtigkeit: ${decodedJson['humidity']}"),
               Text("Wetterprognose: ${decodedJson['forecast'][2]}"),
               const SizedBox(height: 16),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Aufgabe1()),
-                    );
-                  },
-                  child: const Text('Zur Aufgabe1')),
+
+              // die neuen Schaltflächen sind in einer Reihe angeordnet, um auf die neuen Bildschirme zuzugreifen.
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Aufgabe1()),
+                        );
+                      },
+                      child: const Text('zur Aufgabe1')),
+                  const SizedBox(width: 16),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ApiTest1()),
+                        );
+                      },
+                      child: const Text('zum API Test'))
+                ],
+              ),
             ],
           ),
         ));

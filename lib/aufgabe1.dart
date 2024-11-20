@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:json_bonus_tasksheet/apitest.dart';
 import 'dart:convert';
 
 import 'package:json_bonus_tasksheet/aufgabe2.dart';
@@ -33,15 +34,33 @@ class Aufgabe1 extends StatelessWidget {
 
               //Einrichtung einer Schaltfläche, um zu Aufgabe 2 zu gelangen
 
+              //die neuen Schaltflächen sind in einer Reihe angeordnet, um auf die neuen Bildschirme zuzugreifen.
+
               const SizedBox(height: 16),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Aufgabe2()),
-                    );
-                  },
-                  child: const Text('Zur Aufgabe2')),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Aufgabe2()),
+                        );
+                      },
+                      child: const Text('zur Aufgabe2')),
+                  const SizedBox(width: 16),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ApiTest1()),
+                        );
+                      },
+                      child: const Text('zum API Test'))
+                ],
+              ),
             ],
           ),
         ));
